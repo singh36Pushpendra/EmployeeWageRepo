@@ -13,10 +13,16 @@ public class EmpWageComputation {
 		Random random = new Random();
 		boolean attendance = random.nextBoolean();
 		
-		if (attendance) {
-			System.out.println("Employee is present.");
-			fullDayHour = 8;
-		}
+		boolean isPartTime = random.nextBoolean();
+		if (attendance)
+			if (isPartTime) {
+				System.out.println("Part time employee is present.");
+				fullDayHour = 4;
+			}
+			else {
+				System.out.println("Full time employee is present.");
+				fullDayHour = 8;
+			}
 		else
 			System.out.println("Employee is absent.");
 
