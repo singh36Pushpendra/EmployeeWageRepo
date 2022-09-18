@@ -6,7 +6,7 @@ public class EmpWageComputation {
 
 	public static void main(String[] args) {
 		float dailyWage, monthlyWage = 0;
-		int wagePerHour = 20, fullDayHour = 0, workingDaysPerMonth = 20;
+		int wagePerHour = 20, fullDayHour = 0, workingDaysPerMonth = 20, day = 0;
 
 		System.out.println("Welcome to Employee Wage Computation Program.");
 
@@ -14,8 +14,9 @@ public class EmpWageComputation {
 		int attendance;
 
 		int isPartTime;
-
-		for (int i = 1; i <= workingDaysPerMonth; i++) {
+		int workingHoursPerMonth = 0;
+		while (workingHoursPerMonth <= 100 && day != 20) {
+			day++;
 			attendance = random.nextInt(2);
 			isPartTime = 1 + random.nextInt(2);
 
@@ -36,12 +37,13 @@ public class EmpWageComputation {
 				System.out.println("Employee is absent.");
 
 			}
-			
+			workingHoursPerMonth += fullDayHour;
 			dailyWage = wagePerHour * fullDayHour;
 			monthlyWage += dailyWage;
-			System.out.println("Day " + i + " wage of employee: " + dailyWage + "\n");
+			System.out.println("Day " + day + " wage of employee: " + dailyWage + "\n");
 		}
 		System.out.println("\nMonth wage of employee: " + monthlyWage);
+		System.out.println("\nProgram runs total: " + day + " times.");
 	}
 
 }
