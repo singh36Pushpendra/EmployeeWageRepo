@@ -1,5 +1,6 @@
 package pack.emp.wage;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EmpWageBuilder {
@@ -8,7 +9,7 @@ public class EmpWageBuilder {
 	private static String companyName;
 	private static float wagePerHour;
 	private static int perCompanyDays, perCompanyHours, countCompany;
-	private static CompanyEmpWage[] companies;
+	private static ArrayList<CompanyEmpWage> companies;
 
 	private static void takeCompanyDetails() {
 		countCompany++;
@@ -28,22 +29,25 @@ public class EmpWageBuilder {
 	
 	public static void main(String[] args) {
 
+		String option = "";
 		System.out.println("Welcome to Employee Wage Computation Program.");
-		System.out.println("Enter number for how many companies you wan't to find employee wage: ");
-		int num = scanner.nextInt();
-		scanner.nextLine();
 		
-		companies = new CompanyEmpWage[num];
+		companies = new ArrayList<CompanyEmpWage>();
 		
-		for (int i = 0; i < num; i++) {
+		while (true) {
 			takeCompanyDetails();
-			companies[i] = new CompanyEmpWage(companyName, wagePerHour, perCompanyDays, perCompanyHours);
+			companies.add(new CompanyEmpWage(companyName, wagePerHour, perCompanyDays, perCompanyHours));
+			System.out.println("Do you wan't to add one more company [Yes|No]: ");
+			option = scanner.next();
+			if (option.equalsIgnoreCase("nO"))
+				break;
+			scanner.nextLine();
 		}
 		
 		System.out.println("\n\n--------------------------------------------------");
 		
-		for (int i = 0; i < num; i++) {
-			companies[i].findEmpWage();
+		for (int i = 0; i < companies.size(); i++) {
+			companies.get(i).findEmpWage();
 			System.out.println("\n\n--------------------------------------------------");
 		}
 	}
