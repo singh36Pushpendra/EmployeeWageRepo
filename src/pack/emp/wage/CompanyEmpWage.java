@@ -2,7 +2,7 @@ package pack.emp.wage;
 
 import java.util.Random;
 
-public class CompanyEmpWage {
+public class CompanyEmpWage implements IEmpWage {
 
 	private String companyName;
 	private float perHourWage;
@@ -21,7 +21,7 @@ public class CompanyEmpWage {
 		this.totalWorkingHours = totalWorkingHours;
 	}
 	
-	void findEmpWage() {
+	public void findEmpWage() {
 		workingHoursPerMonth = 0;
 		monthlyWage = 0;
 		day = 0;
