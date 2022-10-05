@@ -50,6 +50,13 @@ public class EmpWageBuilder {
 			companies.get(i).findEmpWage();
 			System.out.println("\n\n--------------------------------------------------");
 		}
+		
+		System.out.println("Daily wages of companies in list: ");
+		for (ArrayList<Float> dailyWages : CompanyEmpWage.companiesDailyWages)
+			System.out.println(dailyWages);
+		
+		System.out.println("Total wage of companies in list: ");
+		System.out.println(CompanyEmpWage.companiesTotalWage);
 	}
 
 }

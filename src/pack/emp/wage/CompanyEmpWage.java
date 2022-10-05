@@ -1,5 +1,6 @@
 package pack.emp.wage;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class CompanyEmpWage implements IEmpWage {
@@ -7,6 +8,10 @@ public class CompanyEmpWage implements IEmpWage {
 	private String companyName;
 	private float perHourWage;
 	private int totalWorkingDays, totalWorkingHours;
+	private ArrayList<Float> dailyWages = new ArrayList<Float>();
+	
+	static ArrayList<ArrayList<Float>> companiesDailyWages = new ArrayList<ArrayList<Float>>();
+	static ArrayList<Float> companiesTotalWage = new ArrayList<Float>(); 
 	
 	private static final int PART_TIME = 1, FULL_TIME = 2;
 
@@ -52,10 +57,14 @@ public class CompanyEmpWage implements IEmpWage {
 
 			workingHoursPerMonth += fullDayHour;
 			dailyWage = perHourWage * fullDayHour;
+			dailyWages.add(dailyWage);
+			
 			monthlyWage += dailyWage;
 			
 			System.out.println("Day " + day + " wage of employee: " + dailyWage + "\n");
 		}
+		companiesDailyWages.add(dailyWages);
+		companiesTotalWage.add(monthlyWage);
 
 		System.out.println("\nEmployee total working hours of this month: " + workingHoursPerMonth + " Hours.");
 		System.out.println("\nEmployee total wage of this month: " + monthlyWage + " Rs.");
