@@ -11,7 +11,8 @@ public class CompanyEmpWage implements IEmpWage {
 	private ArrayList<Float> dailyWages = new ArrayList<Float>();
 	
 	static ArrayList<ArrayList<Float>> companiesDailyWages = new ArrayList<ArrayList<Float>>();
-	static ArrayList<Float> companiesTotalWage = new ArrayList<Float>(); 
+	static ArrayList<Float> companiesTotalWage = new ArrayList<Float>();
+	static ArrayList<String> companiesName = new ArrayList<String>();
 	
 	private static final int PART_TIME = 1, FULL_TIME = 2;
 
@@ -65,6 +66,7 @@ public class CompanyEmpWage implements IEmpWage {
 		}
 		companiesDailyWages.add(dailyWages);
 		companiesTotalWage.add(monthlyWage);
+		companiesName.add(companyName);
 
 		System.out.println("\nEmployee total working hours of this month: " + workingHoursPerMonth + " Hours.");
 		System.out.println("\nEmployee total wage of this month: " + monthlyWage + " Rs.");

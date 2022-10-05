@@ -27,6 +27,19 @@ public class EmpWageBuilder {
 		scanner.nextLine();
 	}
 	
+	private static float getTotalWage() {
+		int i;
+		System.out.println("Enter queried company name: ");
+		Scanner scanner2 = new Scanner(System.in);
+		String companyName = scanner2.nextLine();
+		scanner2.close();
+		for (i = 0; i < CompanyEmpWage.companiesName.size(); i++) {
+			if (CompanyEmpWage.companiesName.get(i).equals(companyName))
+				break;
+		}
+		return CompanyEmpWage.companiesTotalWage.get(i);
+	}
+	
 	public static void main(String[] args) {
 
 		String option = "";
@@ -57,6 +70,8 @@ public class EmpWageBuilder {
 		
 		System.out.println("Total wage of companies in list: ");
 		System.out.println(CompanyEmpWage.companiesTotalWage);
+		
+		System.out.println("Total wage of queried company = " + getTotalWage());
 	}
 
 }
